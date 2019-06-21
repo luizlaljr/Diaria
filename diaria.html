@@ -49,6 +49,7 @@
             *zoom: 1;
             *display: inline;
             text-align: center;
+            border: 2px solid blue;
         }
 
             @media (min-width: 650px) {
@@ -64,21 +65,24 @@
             }
         .flex-container{
             display: flex;
-            justify-content: space-around;
             align-items: center;
             height: 40px;
         }
         .label-text{
             text-align: start;
+            padding: 0 5px;
             flex-grow: 1;
+            width: 30%;
         }
         .input-text{
             text-align:justify;
+            padding: 0 5px;
             flex-grow: 2;
+            width: 40%;
         }
         .header{
             margin: 10px -5px;
-            height: 70px;
+            height: 100px;
             padding: 15px;
             text-align: center;
             color: aliceblue;
@@ -87,6 +91,11 @@
             background: -webkit-linear-gradient(top, #1e5799 0%,#2290e5 100%); /* Chrome10-25,Safari5.1-6 */
             background: linear-gradient(to bottom, #1e5799 0%,#2290e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         }
+        @media (min-width: 368px) {
+                .header {
+                    height: 70px;
+                }
+            }
     </style>
 </head>
 <body>
