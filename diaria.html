@@ -13,12 +13,16 @@
                 -moz-box-sizing: border-box;
                     box-sizing: border-box;
         }
-
+        body{
+            background: black;
+            color: white;
+        }
         .container  {
             width: 100%;
             margin-left: auto;
             margin-right: auto;
             padding: 0 20px;
+            
         }
             @media (min-width: 1396px) {
                 .container {
@@ -73,14 +77,14 @@
             padding: 5px;
             flex-grow: 1;            
             width: 30%;
-            border: 2px solid blue;
+            /*border: 2px solid blue;*/
         }
         .input-text{
             text-align:justify;
             padding: 0 5px;
             flex-grow: 2;
             width: 40%;
-            border: 2px solid red;
+            /*border: 2px solid red;*/
 
         }
         .header{
@@ -103,6 +107,21 @@
         }
         .esconde{
             visibility: hidden;
+        }
+        .button{
+            text-align: right;
+            padding-right: 20px;
+        }
+        button{
+            text-align: center;
+            font-size: 20px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background: #2290e5;
+            color: white;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: 1px solid #2290e5;
         }
     </style>
 </head>
@@ -178,6 +197,13 @@
         </div>
         <div class="row">
             <hr>
+        </div>
+        <div class="row">
+            <div class="col">              
+                <div class="button">
+                    <button><strong>+</strong></button>
+                </div>
+            </div>
         </div>
     </div>
     <script>
