@@ -100,7 +100,10 @@
                 height: .25em;
                 margin: 24px 0;
                 padding: 0;
-            }
+        }
+        .esconde{
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -157,11 +160,11 @@
                 <div class="col col-2">
                     <div class="flex-container">
                         <div class="input-text">
-                            <input type="checkbox" name="ehExterior" id="ehExterior"> O início do último dia da missão foi no exterior?</input>
+                            <input esconde-meia-diaria type="checkbox" name="ehExterior" id="ehExterior"> O início do último dia da missão foi no exterior?</input>
                         </div>
                     </div>
                 </div>
-                <div class="col col-2">
+                <div meia-diaria class="col col-2">
                     <div class="flex-container">
                         <div class="label-text">
                             <label for="meiaDiaria">Meia Diária</label>
@@ -177,5 +180,22 @@
             <hr>
         </div>
     </div>
+    <script>
+        function esconderMeiaDiaria(selecionado) {
+            const meiadiaria = document.querySelector('[meia-diaria]').classList            
+            if(selecionado){
+                meiadiaria.add('esconde')
+            }else{
+                meiadiaria.remove('esconde')
+            }
+            
+        }
+        const ehExterior = document.querySelector('[esconde-meia-diaria]')
+        ehExterior.addEventListener("change", (el) => {
+            esconderMeiaDiaria(ehExterior.checked)
+        })
+
+        ehExterior.dispatchEvent(new Event("change"))
+    </script>
 </body>
 </html>
