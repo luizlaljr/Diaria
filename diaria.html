@@ -108,7 +108,7 @@
         .esconde{
             visibility: hidden;
         }
-        .button{
+        .botao{
             text-align: right;
             padding-right: 20px;
         }
@@ -193,15 +193,18 @@
                         </div>                        
                     </div>
                 </div>
-            </div>
+            </div>Início
         </div>
-        <div class="row">
+        <div linha class="row">
             <hr>
         </div>
+        <trecho>
+
+        </trecho>
         <div class="row">
             <div class="col">              
-                <div class="button">
-                    <button><strong>+</strong></button>
+                <div class="botao">
+                    <button onclick="inserirTrecho()"><strong>+</strong></button>
                 </div>
             </div>
         </div>
@@ -222,6 +225,115 @@
         })
 
         ehExterior.dispatchEvent(new Event("change"))
+
+        const trecho = document.querySelector('trecho')
+        let contTrecho = 1;
+        function inserirTrecho(){
+
+            const divrow = document.createElement('div')
+            divrow.setAttribute('class','row')
+            trecho.appendChild(divrow)
+
+            const divcol = document.createElement('div')
+            divcol.setAttribute('class','col')
+            divrow.appendChild(divcol)
+
+            const divcol1 = document.createElement('div')
+            divcol1.setAttribute('class','col col-2 col-4')
+            const divflex1 = document.createElement('div')
+            divflex1.setAttribute('class','flex-container')
+            const divlabel1 = document.createElement('div')
+            divlabel1.setAttribute('class','label-text')
+            const label1 = document.createElement('label')
+            label1.setAttribute('for','dataInicio'+contTrecho)
+            label1.innerText = 'Data Início'
+            const divinput1 = document.createElement('div')
+            divinput1.setAttribute('class','input-text')
+            const input1 = document.createElement('input')
+            input1.setAttribute('type','date')
+            input1.setAttribute('name','dataInicio'+contTrecho)
+            input1.setAttribute('id','dataInicio'+contTrecho)
+
+            divcol.appendChild(divcol1)
+            divcol1.appendChild(divflex1)
+            divflex1.appendChild(divlabel1)
+            divflex1.appendChild(divinput1)
+            divlabel1.appendChild(label1)
+            divinput1.appendChild(input1)
+
+            const divcol2 = document.createElement('div')
+            divcol2.setAttribute('class','col col-2 col-4')
+            const divflex2 = document.createElement('div')
+            divflex2.setAttribute('class','flex-container')
+            const divlabel2 = document.createElement('div')
+            divlabel2.setAttribute('class','label-text')
+            const label2 = document.createElement('label')
+            label2.setAttribute('for','horaInicio'+contTrecho)
+            label2.innerText = 'Hora Início'
+            const divinput2 = document.createElement('div')
+            divinput2.setAttribute('class','input-text')
+            const input2 = document.createElement('input')
+            input2.setAttribute('type','time')
+            input2.setAttribute('name','horaInicio'+contTrecho)
+            input2.setAttribute('id','horaInicio'+contTrecho)
+
+            divcol.appendChild(divcol2)
+            divcol2.appendChild(divflex2)
+            divflex2.appendChild(divlabel2)
+            divflex2.appendChild(divinput2)
+            divlabel2.appendChild(label2)
+            divinput2.appendChild(input2)
+
+            const divcol3 = document.createElement('div')
+            divcol3.setAttribute('class','col col-2 col-4')
+            const divflex3 = document.createElement('div')
+            divflex3.setAttribute('class','flex-container')
+            const divlabel3 = document.createElement('div')
+            divlabel3.setAttribute('class','label-text')
+            const label3 = document.createElement('label')
+            label3.setAttribute('for','dataFim'+contTrecho)
+            label3.innerText = 'Data Fim'
+            const divinput3 = document.createElement('div')
+            divinput3.setAttribute('class','input-text')
+            const input3 = document.createElement('input')
+            input3.setAttribute('type','date')
+            input3.setAttribute('name','dataFim'+contTrecho)
+            input3.setAttribute('id','dataFim'+contTrecho)
+
+            divcol.appendChild(divcol3)
+            divcol3.appendChild(divflex3)
+            divflex3.appendChild(divlabel3)
+            divflex3.appendChild(divinput3)
+            divlabel3.appendChild(label3)
+            divinput3.appendChild(input3)
+
+            const divcol4 = document.createElement('div')
+            divcol4.setAttribute('class','col col-2 col-4')
+            const divflex4 = document.createElement('div')
+            divflex4.setAttribute('class','flex-container')
+            const divlabel4 = document.createElement('div')
+            divlabel4.setAttribute('class','label-text')
+            const label4 = document.createElement('label')
+            label4.setAttribute('for','horaFim'+contTrecho)
+            label4.innerText = 'Hora Fim'
+            const divinput4 = document.createElement('div')
+            divinput4.setAttribute('class','input-text')
+            const input4 = document.createElement('input')
+            input4.setAttribute('type','time')
+            input4.setAttribute('name','horaFim'+contTrecho)
+            input4.setAttribute('id','horaFim'+contTrecho++)
+
+            divcol.appendChild(divcol4)
+            divcol4.appendChild(divflex4)
+            divflex4.appendChild(divlabel4)
+            divflex4.appendChild(divinput4)
+            divlabel4.appendChild(label4)
+            divinput4.appendChild(input4)
+
+        }
+
+        const botao = document.querySelector('button')
+        
     </script>
 </body>
 </html>
