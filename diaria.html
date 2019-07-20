@@ -79,15 +79,28 @@
             padding: 5px;
             flex-grow: 1;            
             width: 30%;
-            /*border: 2px solid blue;*/
         }
         .input-text{
             text-align:justify;
             padding: 0 5px;
             flex-grow: 2;
             width: 40%;
-            /*border: 2px solid red;*/
-
+        }
+        .label-result{
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: x-large;
+            text-shadow: 0 0 0.2em rgb(5, 197, 245);
+            padding: 5px;
+            
+        }
+        .text-result{
+            text-align: start;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: large;
+            margin-left: 10px;
+            padding: 0 5px;
+            border: 1px solid #78a9da;
         }
         .header{
             margin: 10px -5px;
@@ -105,7 +118,7 @@
                 background-color: #e1e4e8;
                 border: 0;
                 height: .25em;
-                margin: 24px 0;
+                margin: 10px 0;
                 padding: 0;
         }
         .esconde{
@@ -132,46 +145,94 @@
     <div class="container">        
         <div class="header">
             <h2>Cálculo de Diária</h2>
-        </div>            
+        </div>
+        
         <div class="row">
             <div class="col">
                 <div class="col col-2 col-4">
                     <div class="flex-container">
                         <div class="label-text">
-                            <label for="dataInicio">Data Início</label>
+                            <label for="numberGen">General</label>
                         </div>
                         <div class="input-text">
-                            <input type="date" name="dataInicio" id="dataInicio">
+                            <input type="number" name="numberGen" id="numberGen">
                         </div>
                     </div>
                 </div>
                 <div class="col col-2 col-4">
                     <div class="flex-container">
                         <div class="label-text">
-                            <label for="horaInicio">Hora Início</label>
+                            <label for="numberSup">Superior</label>
                         </div>
                         <div class="input-text">
-                            <input type="time" name="horaInicio" id="horaInicio">
+                            <input type="number" name="numberSup" id="numberSup">
                         </div>
                     </div>
                 </div>
                 <div class="col col-2 col-4">
                     <div class="flex-container">
                         <div class="label-text">
-                            <label for="dataFim">Data Fim</label>
+                            <label for="numberBas">Normal</label>
                         </div>
                         <div class="input-text">
-                            <input type="date" name="dataFim" id="dataFim">
+                            <input type="number" name="numberBas" id="numberBas">
                         </div>
                     </div>
                 </div>
                 <div class="col col-2 col-4">
                     <div class="flex-container">
                         <div class="label-text">
-                            <label for="horaFim">Hora Fim</label>
+                            <label for="numberPra">Praças</label>
                         </div>
                         <div class="input-text">
-                            <input type="time" name="horaFim" id="horaFim">
+                            <input type="number" name="numberPra" id="numberPra">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <hr>
+        </div>       
+        <div class="row">
+            <div class="col">
+                <div class="col col-2 col-4">
+                    <div class="flex-container">
+                        <div class="label-text">
+                            <label for="dateStart">Data Início</label>
+                        </div>
+                        <div class="input-text">
+                            <input type="date" name="dateStart" id="dateStart">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-2 col-4">
+                    <div class="flex-container">
+                        <div class="label-text">
+                            <label for="hourStart">Hora Início</label>
+                        </div>
+                        <div class="input-text">
+                            <input type="time" name="hourStart" id="hourStart">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-2 col-4">
+                    <div class="flex-container">
+                        <div class="label-text">
+                            <label for="dateEnd">Data Fim</label>
+                        </div>
+                        <div class="input-text">
+                            <input type="date" name="dateEnd" id="dateEnd">
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-2 col-4">
+                    <div class="flex-container">
+                        <div class="label-text">
+                            <label for="hourEnd">Hora Fim</label>
+                        </div>
+                        <div class="input-text">
+                            <input type="time" name="hourEnd" id="hourEnd">
                         </div>
                     </div>
                 </div>
@@ -190,10 +251,10 @@
                 <div meia-diaria class="col col-2">
                     <div class="flex-container">
                         <div class="label-text">
-                            <label for="meiaDiaria">Meia Diária</label>
+                            <label for="halfDaily">Meia Diária</label>
                         </div>
                         <div class="input-text">
-                            <input type="text" name="meiaDiaria" id="meiaDiaria">
+                            <input type="text" name="halfDaily" id="halfDaily">
                         </div>                        
                     </div>
                 </div>
@@ -202,41 +263,53 @@
         <div class="row">
             <hr>
         </div>
-        <trecho>
+        <step>
 
-        </trecho>
+        </step>
+        <div class="row">
+            <div class="col">             
+                <div class="flex-container">
+                    <div class="label-result">
+                        <label for="label-result">Resultado</label>
+                    </div>
+                    <div class="text-result">
+                        <label for="result">R$ 3.000,00</label>
+                    </div>                        
+                </div>                
+            </div>
+        </div>
         <div class="row">
             <div class="col">              
                 <div class="botao">
-                    <button onclick="inserirTrecho()"><strong>+</strong></button>
+                    <button onclick="inserirstep()"><strong>+</strong></button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function esconderMeiaDiaria(selecionado) {
-            const meiadiaria = document.querySelector('[meia-diaria]').classList            
+        function esconderhalfDaily(selecionado) {
+            const halfDaily = document.querySelector('[meia-diaria]').classList            
             if(selecionado){
-                meiadiaria.add('esconde')
+                halfDaily.add('esconde')
             }else{
-                meiadiaria.remove('esconde')
+                halfDaily.remove('esconde')
             }
             
         }
         const ehExterior = document.querySelector('[esconde-meia-diaria]')
         ehExterior.addEventListener("change", (el) => {
-            esconderMeiaDiaria(ehExterior.checked)
+            esconderhalfDaily(ehExterior.checked)
         })
 
         ehExterior.dispatchEvent(new Event("change"))
 
-        const trecho = document.querySelector('trecho')
-        let contTrecho = 1;
-        function inserirTrecho(){
+        const step = document.querySelector('step')
+        let countStep = 1;
+        function inserirstep(){
 
             const divrow = document.createElement('div')
             divrow.setAttribute('class','row')
-            trecho.appendChild(divrow)
+            step.appendChild(divrow)
 
             const divcol = document.createElement('div')
             divcol.setAttribute('class','col')
@@ -249,14 +322,14 @@
             const divlabel1 = document.createElement('div')
             divlabel1.setAttribute('class','label-text')
             const label1 = document.createElement('label')
-            label1.setAttribute('for','dataInicio'+contTrecho)
+            label1.setAttribute('for','dateStart'+countStep)
             label1.innerText = 'Data Início'
             const divinput1 = document.createElement('div')
             divinput1.setAttribute('class','input-text')
             const input1 = document.createElement('input')
             input1.setAttribute('type','date')
-            input1.setAttribute('name','dataInicio'+contTrecho)
-            input1.setAttribute('id','dataInicio'+contTrecho)
+            input1.setAttribute('name','dateStart'+countStep)
+            input1.setAttribute('id','dateStart'+countStep)
 
             divcol.appendChild(divcol1)
             divcol1.appendChild(divflex1)
@@ -272,14 +345,14 @@
             const divlabel2 = document.createElement('div')
             divlabel2.setAttribute('class','label-text')
             const label2 = document.createElement('label')
-            label2.setAttribute('for','dataFim'+contTrecho)
+            label2.setAttribute('for','dateEnd'+countStep)
             label2.innerText = 'Data Fim'
             const divinput2 = document.createElement('div')
             divinput2.setAttribute('class','input-text')
             const input2 = document.createElement('input')
             input2.setAttribute('type','date')
-            input2.setAttribute('name','dataFim'+contTrecho)
-            input2.setAttribute('id','dataFim'+contTrecho)
+            input2.setAttribute('name','dateEnd'+countStep)
+            input2.setAttribute('id','dateEnd'+countStep)
 
             divcol.appendChild(divcol2)
             divcol2.appendChild(divflex2)
@@ -295,14 +368,14 @@
             const divlabel3 = document.createElement('div')
             divlabel3.setAttribute('class','label-text')
             const label3 = document.createElement('label')
-            label3.setAttribute('for','localidade'+contTrecho)
-            label3.innerText = 'Localidade'
+            label3.setAttribute('for','locality'+countStep)
+            label3.innerText = 'locality'
             const divinput3 = document.createElement('div')
             divinput3.setAttribute('class','input-text')
             const input3 = document.createElement('input')
             input3.setAttribute('type','text')
-            input3.setAttribute('name','localidade'+contTrecho)
-            input3.setAttribute('id','localidade'+contTrecho)
+            input3.setAttribute('name','locality'+countStep)
+            input3.setAttribute('id','locality'+countStep)
 
             divcol.appendChild(divcol3)
             divcol3.appendChild(divflex3)
@@ -319,18 +392,18 @@
             divinput4.setAttribute('class','input-text')
             const input4 = document.createElement('input')
             input4.setAttribute('type','checkbox')
-            input4.setAttribute('name','auxDesloc'+contTrecho)
-            input4.setAttribute('id','auxDesloc'+contTrecho)
+            input4.setAttribute('name','auxDesloc'+countStep)
+            input4.setAttribute('id','auxDesloc'+countStep)
             const label4 = document.createElement('label')
-            label4.setAttribute('for','auxDesloc'+contTrecho)
+            label4.setAttribute('for','auxDesloc'+countStep)
             label4.innerText = ' Aux. Desloc.? '
 
             const input5 = document.createElement('input')
             input5.setAttribute('type','checkbox')
-            input5.setAttribute('name','exterior'+contTrecho)
-            input5.setAttribute('id','exterior'+contTrecho)
+            input5.setAttribute('name','exterior'+countStep)
+            input5.setAttribute('id','exterior'+countStep)
             const label5 = document.createElement('label')
-            label5.setAttribute('for','exterior'+contTrecho++)
+            label5.setAttribute('for','exterior'+countStep++)
             label5.innerText = ' Exterior ?'
             
 
@@ -347,7 +420,7 @@
             
             divlinha.setAttribute('class','row')
             divlinha.innerHTML = "<hr>"
-            trecho.appendChild(divlinha)
+            step.appendChild(divlinha)
         }
 
         const botao = document.querySelector('button')
