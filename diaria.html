@@ -14,8 +14,10 @@
                     box-sizing: border-box;
         }
         body{
-            background: black;
-            color: white;
+            background: #F0FFFF;
+            color: #000;
+            font-family: fantasy;
+            font-size: 16px;
         }
         .container  {
             width: 100%;
@@ -91,6 +93,7 @@
             margin: 10px -5px;
             height: 40px;
             padding: 7px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             text-align: center;
             color: aliceblue;
             background: #1e5799; /* Old browsers */
@@ -179,7 +182,8 @@
                 <div class="col col-2">
                     <div class="flex-container">
                         <div class="input-text">
-                            <input esconde-meia-diaria type="checkbox" name="ehExterior" id="ehExterior"> O início do último dia da missão foi no exterior?</input>
+                            <input esconde-meia-diaria type="checkbox" name="ehExterior" id="ehExterior">
+                            <label for="ehExterior">O início do último dia da missão foi no exterior?</label>
                         </div>
                     </div>
                 </div>
@@ -193,9 +197,9 @@
                         </div>                        
                     </div>
                 </div>
-            </div>Início
+            </div>
         </div>
-        <div linha class="row">
+        <div class="row">
             <hr>
         </div>
         <trecho>
@@ -268,14 +272,14 @@
             const divlabel2 = document.createElement('div')
             divlabel2.setAttribute('class','label-text')
             const label2 = document.createElement('label')
-            label2.setAttribute('for','horaInicio'+contTrecho)
-            label2.innerText = 'Hora Início'
+            label2.setAttribute('for','dataFim'+contTrecho)
+            label2.innerText = 'Data Fim'
             const divinput2 = document.createElement('div')
             divinput2.setAttribute('class','input-text')
             const input2 = document.createElement('input')
-            input2.setAttribute('type','time')
-            input2.setAttribute('name','horaInicio'+contTrecho)
-            input2.setAttribute('id','horaInicio'+contTrecho)
+            input2.setAttribute('type','date')
+            input2.setAttribute('name','dataFim'+contTrecho)
+            input2.setAttribute('id','dataFim'+contTrecho)
 
             divcol.appendChild(divcol2)
             divcol2.appendChild(divflex2)
@@ -291,14 +295,14 @@
             const divlabel3 = document.createElement('div')
             divlabel3.setAttribute('class','label-text')
             const label3 = document.createElement('label')
-            label3.setAttribute('for','dataFim'+contTrecho)
-            label3.innerText = 'Data Fim'
+            label3.setAttribute('for','localidade'+contTrecho)
+            label3.innerText = 'Localidade'
             const divinput3 = document.createElement('div')
             divinput3.setAttribute('class','input-text')
             const input3 = document.createElement('input')
-            input3.setAttribute('type','date')
-            input3.setAttribute('name','dataFim'+contTrecho)
-            input3.setAttribute('id','dataFim'+contTrecho)
+            input3.setAttribute('type','text')
+            input3.setAttribute('name','localidade'+contTrecho)
+            input3.setAttribute('id','localidade'+contTrecho)
 
             divcol.appendChild(divcol3)
             divcol3.appendChild(divflex3)
@@ -311,25 +315,39 @@
             divcol4.setAttribute('class','col col-2 col-4')
             const divflex4 = document.createElement('div')
             divflex4.setAttribute('class','flex-container')
-            const divlabel4 = document.createElement('div')
-            divlabel4.setAttribute('class','label-text')
-            const label4 = document.createElement('label')
-            label4.setAttribute('for','horaFim'+contTrecho)
-            label4.innerText = 'Hora Fim'
             const divinput4 = document.createElement('div')
             divinput4.setAttribute('class','input-text')
             const input4 = document.createElement('input')
-            input4.setAttribute('type','time')
-            input4.setAttribute('name','horaFim'+contTrecho)
-            input4.setAttribute('id','horaFim'+contTrecho++)
+            input4.setAttribute('type','checkbox')
+            input4.setAttribute('name','auxDesloc'+contTrecho)
+            input4.setAttribute('id','auxDesloc'+contTrecho)
+            const label4 = document.createElement('label')
+            label4.setAttribute('for','auxDesloc'+contTrecho)
+            label4.innerText = ' Aux. Desloc.? '
+
+            const input5 = document.createElement('input')
+            input5.setAttribute('type','checkbox')
+            input5.setAttribute('name','exterior'+contTrecho)
+            input5.setAttribute('id','exterior'+contTrecho)
+            const label5 = document.createElement('label')
+            label5.setAttribute('for','exterior'+contTrecho++)
+            label5.innerText = ' Exterior ?'
+            
 
             divcol.appendChild(divcol4)
             divcol4.appendChild(divflex4)
-            divflex4.appendChild(divlabel4)
             divflex4.appendChild(divinput4)
-            divlabel4.appendChild(label4)
             divinput4.appendChild(input4)
-
+            divinput4.appendChild(label4)
+            divinput4.appendChild(input5)
+            divinput4.appendChild(label5)
+            
+            
+            const divlinha = document.createElement('div')
+            
+            divlinha.setAttribute('class','row')
+            divlinha.innerHTML = "<hr>"
+            trecho.appendChild(divlinha)
         }
 
         const botao = document.querySelector('button')
