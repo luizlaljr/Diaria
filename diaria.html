@@ -14,9 +14,9 @@
                     box-sizing: border-box;
         }
         body{
-            background: #F0FFFF;
-            color: #000;
-            font-family: fantasy;
+            background: #000;
+            color: #F0FFFF;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
         }
         .container  {
@@ -121,10 +121,10 @@
                 margin: 10px 0;
                 padding: 0;
         }
-        .esconde{
+        .hidden{
             visibility: hidden;
         }
-        .botao{
+        .button{
             text-align: right;
             padding-right: 20px;
         }
@@ -155,7 +155,9 @@
                             <label for="numberGen">General</label>
                         </div>
                         <div class="input-text">
-                            <input type="number" name="numberGen" id="numberGen">
+                            <select name="numberGen" id="numberGen">
+                                <option value="0"></option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -165,7 +167,9 @@
                             <label for="numberSup">Superior</label>
                         </div>
                         <div class="input-text">
-                            <input type="number" name="numberSup" id="numberSup">
+                            <select name="numberSup" id="numberSup">
+                                <option value="0"></option>
+                            </select>    
                         </div>
                     </div>
                 </div>
@@ -175,7 +179,9 @@
                             <label for="numberBas">Normal</label>
                         </div>
                         <div class="input-text">
-                            <input type="number" name="numberBas" id="numberBas">
+                            <select name="numberBas" id="numberBas">
+                                <option value="0"></option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -185,7 +191,9 @@
                             <label for="numberPra">Praças</label>
                         </div>
                         <div class="input-text">
-                            <input type="number" name="numberPra" id="numberPra">
+                            <select name="numberPra" id="numberPra">
+                                <option value="0"></option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -243,12 +251,12 @@
                 <div class="col col-2">
                     <div class="flex-container">
                         <div class="input-text">
-                            <input esconde-meia-diaria type="checkbox" name="ehExterior" id="ehExterior">
-                            <label for="ehExterior">O início do último dia da missão foi no exterior?</label>
+                            <input hidden-half-daily type="checkbox" name="isForeign" id="isForeign">
+                            <label for="isForeign">O início do último dia da missão foi no exterior?</label>
                         </div>
                     </div>
                 </div>
-                <div meia-diaria class="col col-2">
+                <div half-daily class="col col-2">
                     <div class="flex-container">
                         <div class="label-text">
                             <label for="halfDaily">Meia Diária</label>
@@ -280,33 +288,50 @@
         </div>
         <div class="row">
             <div class="col">              
-                <div class="botao">
-                    <button onclick="inserirstep()"><strong>+</strong></button>
+                <div class="button">
+                    <button onclick="includeStep()"><strong>+</strong></button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-        function esconderhalfDaily(selecionado) {
-            const halfDaily = document.querySelector('[meia-diaria]').classList            
-            if(selecionado){
-                halfDaily.add('esconde')
-            }else{
-                halfDaily.remove('esconde')
-            }
+        function completeOptions(){
+            const select = document.querySelectorAll('select')
             
+            for (let j = 0; j <= 3 ; j++){
+                for (let i = 1; i <= 50; i++) {
+                    const option = document.createElement('option')
+                    option.setAttribute('value',i)
+                    option.innerText = i
+                    select[j].appendChild(option);
+                } 
+            }
         }
-        const ehExterior = document.querySelector('[esconde-meia-diaria]')
-        ehExterior.addEventListener("change", (el) => {
-            esconderhalfDaily(ehExterior.checked)
+
+        window.onload = completeOptions()
+
+
+        function hiddenHalfDaily(ckecked) {
+            const halfDaily = document.querySelector('[half-daily]').classList            
+            if(ckecked){
+                halfDaily.add('hidden')
+            }else{
+                halfDaily.remove('hidden')
+            }  
+        }
+        
+        isForeign.addEventListener("change", (el) => {
+            const isForeign = document.querySelector('[hidden-half-daily]')
+            hiddenHalfDaily(isForeign.checked)
         })
 
-        ehExterior.dispatchEvent(new Event("change"))
+        isForeign.dispatchEvent(new Event("change"))
 
-        const step = document.querySelector('step')
+        
         let countStep = 1;
-        function inserirstep(){
 
+        function includeStep(){
+            const step = document.querySelector('step')
             const divrow = document.createElement('div')
             divrow.setAttribute('class','row')
             step.appendChild(divrow)
@@ -369,7 +394,7 @@
             divlabel3.setAttribute('class','label-text')
             const label3 = document.createElement('label')
             label3.setAttribute('for','locality'+countStep)
-            label3.innerText = 'locality'
+            label3.innerText = 'Localidade'
             const divinput3 = document.createElement('div')
             divinput3.setAttribute('class','input-text')
             const input3 = document.createElement('input')
@@ -423,8 +448,9 @@
             step.appendChild(divlinha)
         }
 
-        const botao = document.querySelector('button')
+        const button = document.querySelector('button')
         
+
     </script>
 </body>
 </html>
