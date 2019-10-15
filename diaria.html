@@ -224,6 +224,28 @@
         </div>
         <div class="row">
             <hr>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="col col-2">
+                    <div class="flex-container">
+                        <div class="input-text">
+                            <input hidden-half-daily type="checkbox" name="isForeign" id="isForeign">
+                            <label for="isForeign">Último dia no Exterior ou trecho da Acolhida?</label>
+                        </div>
+                    </div>
+                </div>
+                <div half-daily class="col col-2">
+                    <div class="flex-container">
+                        <div class="label-text">
+                            <label for="halfDaily">Meia Diária</label>
+                        </div>
+                        <div class="input-text">
+                            <input type="text" name="halfDaily" id="halfDaily" maxlength="4"  >
+                        </div>                        
+                    </div>
+                </div>
+            </div>
         </div>       
         <div class="row">
             <div class="col">
@@ -265,28 +287,6 @@
                         <div class="input-text">
                             <input type="time" name="hourEnd" id="hourEnd">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="col col-2">
-                    <div class="flex-container">
-                        <div class="input-text">
-                            <input hidden-half-daily type="checkbox" name="isForeign" id="isForeign">
-                            <label for="isForeign">O início do último dia da missão foi no exterior?</label>
-                        </div>
-                    </div>
-                </div>
-                <div half-daily class="col col-2">
-                    <div class="flex-container">
-                        <div class="label-text">
-                            <label for="halfDaily">Meia Diária</label>
-                        </div>
-                        <div class="input-text">
-                            <input type="text" name="halfDaily" id="halfDaily" maxlength="4"  >
-                        </div>                        
                     </div>
                 </div>
             </div>
@@ -398,14 +398,15 @@
                 const divlabel1 = document.createElement('div')
                 divlabel1.setAttribute('class','label-text')
                 const label1 = document.createElement('label')
-                label1.setAttribute('for','dateStart'+ ++countStep)
-                label1.innerText = 'Data Início'
+                label1.setAttribute('for','localityStep'+countStep)
+                label1.innerText = 'Localidade'
                 const divinput1 = document.createElement('div')
                 divinput1.setAttribute('class','input-text')
                 const input1 = document.createElement('input')
-                input1.setAttribute('type','date')
-                input1.setAttribute('name','dateStart'+countStep)
-                input1.setAttribute('id','dateStart'+countStep)
+                input1.setAttribute('type','text')
+                input1.setAttribute('name','localityStep'+countStep)
+                input1.setAttribute('id','localityStep'+countStep)
+                input1.setAttribute('maxlength', '4')
 
                 divcol.appendChild(divcol1)
                 divcol1.appendChild(divflex1)
@@ -418,80 +419,79 @@
                 divcol2.setAttribute('class','col col-2 col-4')
                 const divflex2 = document.createElement('div')
                 divflex2.setAttribute('class','flex-container')
-                const divlabel2 = document.createElement('div')
-                divlabel2.setAttribute('class','label-text')
-                const label2 = document.createElement('label')
-                label2.setAttribute('for','dateEnd'+countStep)
-                label2.innerText = 'Data Fim'
                 const divinput2 = document.createElement('div')
                 divinput2.setAttribute('class','input-text')
                 const input2 = document.createElement('input')
-                input2.setAttribute('type','date')
-                input2.setAttribute('name','dateEnd'+countStep)
-                input2.setAttribute('id','dateEnd'+countStep)
-
-                divcol.appendChild(divcol2)
-                divcol2.appendChild(divflex2)
-                divflex2.appendChild(divlabel2)
-                divflex2.appendChild(divinput2)
-                divlabel2.appendChild(label2)
-                divinput2.appendChild(input2)
-
-                const divcol3 = document.createElement('div')
-                divcol3.setAttribute('class','col col-2 col-4')
-                const divflex3 = document.createElement('div')
-                divflex3.setAttribute('class','flex-container')
-                const divlabel3 = document.createElement('div')
-                divlabel3.setAttribute('class','label-text')
-                const label3 = document.createElement('label')
-                label3.setAttribute('for','locality'+countStep)
-                label3.innerText = 'Localidade'
+                input2.setAttribute('type','checkbox')
+                input2.setAttribute('name','auxDesloc'+countStep)
+                input2.setAttribute('id','auxDesloc'+countStep)
+                const label2 = document.createElement('label')
+                label2.setAttribute('for','auxDesloc'+countStep)
+                label2.innerText = ' Aux. Desloc.? '
                 const divinput3 = document.createElement('div')
                 divinput3.setAttribute('class','input-text')
                 const input3 = document.createElement('input')
-                input3.setAttribute('type','text')
-                input3.setAttribute('name','locality'+countStep)
-                input3.setAttribute('id','locality'+countStep)
-                input3.setAttribute('maxlength', '4')
-
-                divcol.appendChild(divcol3)
-                divcol3.appendChild(divflex3)
-                divflex3.appendChild(divlabel3)
-                divflex3.appendChild(divinput3)
-                divlabel3.appendChild(label3)
+                input3.setAttribute('type','checkbox')
+                input3.setAttribute('name','isForeign'+countStep)
+                input3.setAttribute('id','isForeign'+countStep)
+                const label3 = document.createElement('label')
+                label3.setAttribute('for','isForeign'+countStep)
+                label3.innerText = ' Exterior ou Acolhida?'
+                
+                divcol.appendChild(divcol2)
+                divcol2.appendChild(divflex2)
+                divflex2.appendChild(divinput2)
+                divinput2.appendChild(input2)
+                divinput2.appendChild(label2)
+                divflex2.appendChild(divinput3)
                 divinput3.appendChild(input3)
+                divinput3.appendChild(label3)
 
                 const divcol4 = document.createElement('div')
                 divcol4.setAttribute('class','col col-2 col-4')
                 const divflex4 = document.createElement('div')
                 divflex4.setAttribute('class','flex-container')
+                const divlabel4 = document.createElement('div')
+                divlabel4.setAttribute('class','label-text')
+                const label4 = document.createElement('label')
+                label4.setAttribute('for','dateStart'+ ++countStep)
+                label4.innerText = 'Data Início'
                 const divinput4 = document.createElement('div')
                 divinput4.setAttribute('class','input-text')
                 const input4 = document.createElement('input')
-                input4.setAttribute('type','checkbox')
-                input4.setAttribute('name','auxDesloc'+countStep)
-                input4.setAttribute('id','auxDesloc'+countStep)
-                const label4 = document.createElement('label')
-                label4.setAttribute('for','auxDesloc'+countStep)
-                label4.innerText = ' Aux. Desloc.? '
+                input4.setAttribute('type','date')
+                input4.setAttribute('name','dateStart'+countStep)
+                input4.setAttribute('id','dateStart'+countStep)
+
+                divcol.appendChild(divcol4)
+                divcol4.appendChild(divflex4)
+                divflex4.appendChild(divlabel4)
+                divflex4.appendChild(divinput4)
+                divlabel4.appendChild(label4)
+                divinput4.appendChild(input4)
+
+                const divcol5 = document.createElement('div')
+                divcol5.setAttribute('class','col col-2 col-4')
+                const divflex5 = document.createElement('div')
+                divflex5.setAttribute('class','flex-container')
+                const divlabel5 = document.createElement('div')
+                divlabel5.setAttribute('class','label-text')
+                const label5 = document.createElement('label')
+                label5.setAttribute('for','dateEnd'+countStep)
+                label5.innerText = 'Data Fim'
                 const divinput5 = document.createElement('div')
                 divinput5.setAttribute('class','input-text')
                 const input5 = document.createElement('input')
-                input5.setAttribute('type','checkbox')
-                input5.setAttribute('name','isForeign'+countStep)
-                input5.setAttribute('id','isForeign'+countStep)
-                const label5 = document.createElement('label')
-                label5.setAttribute('for','isForeign'+countStep)
-                label5.innerText = ' Exterior ?'
-                
-                divcol.appendChild(divcol4)
-                divcol4.appendChild(divflex4)
-                divflex4.appendChild(divinput4)
-                divinput4.appendChild(input4)
-                divinput4.appendChild(label4)
-                divflex4.appendChild(divinput5)
-                divinput5.appendChild(input5)
-                divinput5.appendChild(label5)
+                input5.setAttribute('type','date')
+                input5.setAttribute('name','dateEnd'+countStep)
+                input5.setAttribute('id','dateEnd'+countStep)
+
+                divcol.appendChild(divcol5)
+                divcol5.appendChild(divflex5)
+                divflex5.appendChild(divlabel5)
+                divflex5.appendChild(divinput5)
+                divlabel5.appendChild(label5)
+                divinput5.appendChild(input5)                
                 
                 const divlinha = document.createElement('div')
                 
@@ -555,7 +555,7 @@
                     dateStartTransformed = new Date(dateStartStep.slice(0,4), dateStartStep.slice(5,7),dateStart.slice(8,10))
                     dateEndTransformed = new Date(dateEndStep.slice(0,4), dateEndStep.slice(5,7),dateEndStep.slice(8,10))
                     const qtyDaily = (dateEndTransformed - dateStartTransformed)/86400000
-                    const localityStep = document.querySelector('#locality'+k).value
+                    const localityStep = document.querySelector('#localityStep'+k).value
                     index = getValueGroupsDaily(localityStep)
 
                     if((dateStartStep != '') && (dateEndStep != '') && (!isForeignStep.checked) && (dateStartStep<dateEndStep) && (dateEndStep<=dateEnd)){
@@ -609,7 +609,10 @@
         }
 
         const doc = document
+        let m = 1
         doc.addEventListener('change', (el) => {
+            console.log('foi! '+m)
+            m++
             calculateDaily()
         })        
 
